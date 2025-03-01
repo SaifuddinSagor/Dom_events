@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <style>
+        body{
+            border: 2px solid tomato;
+            margin: 2px;
+        }
+        section{
+            border: 2px solid green;
+            margin: 2px;
+        }
+        ol{
+            border: 2px solid purple;
+            margin: 2px;
+        }
+        li{
+            border: 2px solid blue;
+            margin: 2px;
+        }
+      
+    </style>
+</head>
+<body id="body">
+    <h1>Explore Event Bubble</h1>
+    <section id="list-container">
+        <h3>List of Things</h3>
+        <!-- ul>li#item$*6>lorem2 -->
+        <ol id="item-list">
+            <li id="item1">Lorem, ipsum.</li>
+            <li id="item2">Ab, tempore.</li>
+            <li id="item3">Quam, dicta.</li>
+            <li id="item4">Ipsam, cupiditate.</li>
+            <li id="item5">Vel, reprehenderit!</li>
+            <li id="item6">Voluptatibus, vitae.</li>
+        </ul>
+    </section>
+
+    <script>
+        // list item 2 click handler
+        document.getElementById('item2').addEventListener('click',function(){
+            console.log('item-2 clicked');
+            // event.stopPropagation()
+            event.stopImmediatePropagation();
+        })
+        // ol click handler
+        document.getElementById('item-list').addEventListener('click',function(){
+            console.log('ol clicked');
+        })
+        // section click handler
+        document.getElementById('list-container').addEventListener('click',function(){
+            console.log('section clicked');
+        })
+        document.getElementById('body').addEventListener('click',function(){
+            console.log('body clicked');
+        })
+    </script>
+</body>
+</html>
